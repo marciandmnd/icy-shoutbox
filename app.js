@@ -1,3 +1,4 @@
+var http = require('http');
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -6,16 +7,18 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var routes = require('./routes/index');
-var users = require('./routes/users');
+// var users = require('./routes/users');
 var register = require('./routes/register');
 var login = require('./routes/login');
+
 var messages = require('./lib/messages');
+var user = require('./lib/middleware/user');
 
 var app = express();
 
-// view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+app.set('port', process.env.PORT || 3000);
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -24,12 +27,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser('secret'));
 app.use(session());
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(user);
 app.use(messages);
 
-app.use(express.static(path.join(__dirname, 'public')));
-
 app.use('/', routes);
-app.use('/users', users);
+
 app.get('/register', register.form);
 app.post('/register', register.submit);
 app.get('/login', login.form);
@@ -67,6 +70,8 @@ app.use(function(err, req, res, next) {
   });
 });
 
-app.listen(3000);
+http.createServer(app).listen(app.get('port'), function(){
+  console.log('Express server listening on port ' + app.get('port'));
+});
 
 module.exports = app;

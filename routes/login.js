@@ -6,8 +6,8 @@ exports.form = function(req, res) {
 
 exports.submit = function(req, res, next) {
   // var data = request.body.user;
-  var name = request.body.name;
-  var pass = request.body.pass;
+  var name = req.body.name;
+  var pass = req.body.pass;
 
   User.authenticate(name, pass, function(err, user){
     if (err) return next(err);
