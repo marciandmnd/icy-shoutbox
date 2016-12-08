@@ -36,7 +36,6 @@ app.use(messages);
 
 // app.use('/', routes);
 
-app.get('/', page(Entry.count, 5), entries.list);
 app.get('/register', register.form);
 app.post('/register', register.submit);
 app.get('/login', login.form);
@@ -48,6 +47,8 @@ app.post( '/post',
           validate.lengthAbove('title', 4),
           entries.submit
         );
+app.get('/:page?', page(Entry.count, 5), entries.list);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
