@@ -1,6 +1,8 @@
 # Icy Shoutbox
 
-A shoubox where users can post whatever their heart desires.
+A shoutbox where users can post whatever their heart desires. 
+Built with Node + Express
+[Demo](https://icy-shoutbox.herokuapp.com)
 
 <!---
 
