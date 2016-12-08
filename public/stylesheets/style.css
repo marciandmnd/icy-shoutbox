@@ -23,4 +23,14 @@ a {
   text-decoration: none;
   margin-left: 5px;
   color: black;
+  font-family: 'Wire One', sans-serif;
+  font-size: 1.5rem;
+}
+
+#brand {
+  font-family: 'Wire One', sans-serif;
+  position:absolute;
+  top:15px;
+  left: 20px;
+  font-size: 2rem;
 }
