@@ -39,7 +39,10 @@ app.use(messages);
 // app.use('/', routes);
 
 app.get('/register', register.form);
-app.post('/register', register.submit);
+app.post('/register',
+          validate.required('name'),
+          validate.lengthAbove('password', 6),
+          register.submit);
 app.get('/login', login.form);
 app.post('/login', login.submit);
 app.get('/logout', login.logout);
