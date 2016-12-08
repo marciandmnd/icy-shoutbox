@@ -3,20 +3,15 @@
   <% include head %>
   <body>
     <% include menu %>
-    <div class='max-width-4 mx-auto'>
+    <div class='max-width-4 sm-max-width-2 mx-auto'>
       <h1><%= title %></h1>
       <p>Fill in the form below to sign in!</p>
 
       <% include messages %>
 
       <form action='/login' method='post'>
-        <ul class="input-list style-1 clearfix">
-        <li>
-          <input class='style-2' type='text' name='name' placeholder='Username' />
-        </li>
-        <li>
-          <input type='password' name='pass' placeholder='Password' />
-        </li>
+        <input class='block mb2' type='text' name='name' placeholder='Username' />
+        <input class='block' type='password' name='pass' placeholder='Password' />
         <p>
         <input type='submit' value='Sign in' />
         </p>
