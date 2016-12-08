@@ -25,12 +25,54 @@ a {
   color: black;
   font-family: 'Wire One', sans-serif;
   font-size: 1.5rem;
+  /*transition: all 0.4s ease;*/
+}
+
+#menu a:hover {
+  color: red;
+  /*font-size: 1.8rem;*/
 }
 
 #brand {
-  font-family: 'Wire One', sans-serif;
   position:absolute;
   top:15px;
   left: 20px;
+}
+
+#brand a{
+  font-family: 'Wire One', sans-serif;
   font-size: 2rem;
+  /*transition: color 0.4s ease;*/
+}
+
+#brand a:hover {
+  color: red;
+  /*font-size: 2.2rem;*/
+}
+
+/*.blue { color: #00ccff;}*/
+
+.style-2 input[type="text"] {
+  padding: 10px;
+  border: solid 5px #c9c9c9;
+  transition: border 0.3s;
+}
+.style-2 input[type="text"]:focus,
+.style-2 input[type="text"].focus {
+  border: solid 5px #969696;
+}
+
+input[type="text"] {
+  display: block;
+  margin: 0;
+  width: 100%;
+  font-family: sans-serif;
+  font-size: 18px;
+  appearance: none;
+  box-shadow: none;
+  border-radius: none;
+}
+
+input[type="text"]:focus {
+  outline: none;
 }
